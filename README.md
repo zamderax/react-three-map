@@ -241,9 +241,7 @@ Returns a `Vector3Tuple` representing the 3D position of the point relative to t
 
 This utility function converts a `Vector3Tuple`, which represents a 3D vector in meters, back into geographic coordinates.
 
-It is the inverse of `coordsToVector3` but it does not have a good level of precision at long distances since we haven't reverse engineered #102 fix yet.
-
-Recommended to use at city level distances, but margin errors will be noticeable at country level distances.
+It is the inverse of `coordsToVector3` and iteratively resolves the latitude to account for Mercator scaling. This improves accuracy when converting vectors that are far from the origin.
 
 | Parameter                | Description                                                     |
 | ------------------------ | --------------------------------------------------------------- |
